@@ -1,0 +1,48 @@
+#!/bin/bash
+
+SUBJ=$1
+SURF=smoothwm
+QCDIR=/N/dc2/projects/lifebid/glue/fs_qc/figs
+OUTFILE=/N/dc2/projects/lifebid/glue/fs_qc/${SUBJ}_qc
+
+cat << EOF > ${OUTFILE}.tex
+\documentclass[english]{article}
+
+\usepackage[latin9]{inputenc}
+\usepackage{graphicx}
+
+\makeatletter
+
+\providecommand{\tabularnewline}{\\\}
+
+\begin{document}
+
+\begin{figure}
+\begin{tabular}{|c|c|c|}
+\hline
+Left & View & Right \tabularnewline
+\hline
+\includegraphics[scale=0.15]{$QCDIR/${SUBJ}_${SURF}_axial_bottom.png} & Axial & \includegraphics[scale=0.15]{$QCDIR/${SUBJ}_${SURF}_sagittal_left.png} \tabularnewline
+\hline
+\includegraphics[scale=0.15]{$QCDIR/${SUBJ}_${SURF}_sagittal_left.png} & Coronal & \includegraphics[scale=0.15]{$QCDIR/${SUBJ}_${SURF}_sagittal_right.png} \tabularnewline
+\hline 
+\includegraphics[scale=0.15]{$QCDIR/${SUBJ}_${SURF}_axial_top.png} & Sagittal & \includegraphics[scale=0.15]{$QCDIR/${SUBJ}_${SURF}_coronal_back.png} \tabularnewline
+\hline 
+\includegraphics[scale=0.15]{$QCDIR/${SUBJ}_${SURF}_medial_left.png} & Medial & \includegraphics[scale=0.15]{$QCDIR/${SUBJ}_${SURF}_medial_left.png} \tabularnewline
+\hline 
+\includegraphics[scale=0.15]{$QCDIR/${SUBJ}_${SURF}_medial_right.png} & smthng & \includegraphics[scale=0.15]{$QCDIR/${SUBJ}_${SURF}_medial_right.png} \tabularnewline
+\hline 
+\end{tabular}
+\caption{8 Views of Subject ${SUBJ}}
+\end{figure}
+
+\end{document}
+EOF
+
+## compile tex into pdf
+pdflatex ${OUTFILE}.tex
+
+## clean up junk files
+#rm -f ${OUTFILE}.tex
+#rm -f ${OUTFILE}.aux
+#rm -f ${OUTFILE}.log

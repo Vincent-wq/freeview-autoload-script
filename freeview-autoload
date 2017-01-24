@@ -1,43 +1,49 @@
 #!/bin/bash
 
-# SUBJ=105115
-# SURF=smoothwm
+SUBJ=$1
+OUTDIR=$2
+SURF=smoothwm
 
-SUBJ_LIST=(105115 110411 111312 113619 115320 117122 118730)
-SURF_LIST=(smoothwm inflated pial sphere)
+#SUBJ_LIST=(105115 110411 111312 113619 115320 117122 118730)
+#SURF_LIST=(smoothwm)
+##SURF_LIST=(smoothwm inflated pial sphere)
 # Create lists of subjects and surfaces
 
-for i in "${SUBJ_LIST[@]}"
-do
-SUBJ=$i
+# for i in "${SUBJ_LIST[@]}"
+# do
+# SUBJ=$i
 
-for j in "${SURF_LIST[@]}"
-do
-SURF=$j
+# for j in "${SURF_LIST[@]}"
+# do
+# SURF=$j
+
+##
+## SUBJECT_DIR needs to be defined
+
 
 ## sagittal left, take screenshot and save into QC_Pics
-freeview -f /N/dc2/projects/lifebid/HCP/Brent/fs_roi_qc/$i/surf/lh.$j:edgethickness=0:annot=aparc.DKTatlas40.annot -cam zoom 2 -ss ~/QC_Test/${i}_${j}_sagittal_left
+freeview -f $SUBJECTS_DIR/$1/surf/lh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot -cam zoom 2 -ss $OUTDIR/${SUBJ}_${SURF}_sagittal_left
 
 ## sagittal right
-freeview -f /N/dc2/projects/lifebid/HCP/Brent/fs_roi_qc/$i/surf/rh.$j:edgethickness=0:annot=aparc.DKTatlas40.annot -cam azimuth 180 zoom 2 -ss ~/QC_Test/${i}_${j}_sagittal_right
+freeview -f $SUBJECTS_DIR/$1/surf/rh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot -cam azimuth 180 zoom 2 -ss $OUTDIR/${SUBJ}_${SURF}_sagittal_right
 
 ## medial left
-freeview -f /N/dc2/projects/lifebid/HCP/Brent/fs_roi_qc/$i/surf/lh.$j:edgethickness=0:annot=aparc.DKTatlas40.annot -cam azimuth 180 zoom 2 -ss ~/QC_Test/${i}_${j}_medial_left
+freeview -f $SUBJECTS_DIR/$1/surf/lh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot -cam azimuth 180 zoom 2 -ss $OUTDIR/${SUBJ}_${SURF}_medial_left
 
 ## medial right
-freeview -f /N/dc2/projects/lifebid/HCP/Brent/fs_roi_qc/$i/surf/rh.$j:edgethickness=0:annot=aparc.DKTatlas40.annot -cam zoom 2 -ss ~/QC_Test/${i}_${j}_medial_right
+freeview -f $SUBJECTS_DIR/$1/surf/rh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot -cam zoom 2 -ss $OUTDIR/${SUBJ}_${SURF}_medial_right
 
 ## coronal front
-freeview -f /N/dc2/projects/lifebid/HCP/Brent/fs_roi_qc/$i/surf/lh.$j:edgethickness=0:annot=aparc.DKTatlas40.annot -cam azimuth -90 zoom 2 -ss ~/QC_Test/${i}_${j}_coronal_front
+freeview -f $SUBJECTS_DIR/$1/surf/lh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot -cam azimuth -90 zoom 2 -ss $OUTDIR/${SUBJ}_${SURF}_coronal_front
 
 ## coronal back
-freeview -f /N/dc2/projects/lifebid/HCP/Brent/fs_roi_qc/$i/surf/lh.$j:edgethickness=0:annot=aparc.DKTatlas40.annot -cam azimuth 90 zoom 2 -ss ~/QC_Test/${i}_${j}_coronal_back
+freeview -f $SUBJECTS_DIR/$1/surf/lh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot -cam azimuth 90 zoom 2 -ss $OUTDIR/${SUBJ}_${SURF}_coronal_back
 
 ## axial top
-freeview -f /N/dc2/projects/lifebid/HCP/Brent/fs_roi_qc/$i/surf/lh.$j:edgethickness=0:annot=aparc.DKTatlas40.annot -cam elevation 90 zoom 2 -ss ~/QC_Test/${i}_${j}_axial_top
+freeview -f $SUBJECTS_DIR/$1/surf/lh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot -cam elevation 90 zoom 2 -ss $OUTDIR/${SUBJ}_${SURF}_axial_top
 
 ## axial bottom
-freeview -f /N/dc2/projects/lifebid/HCP/Brent/fs_roi_qc/$i/surf/lh.$j:edgethickness=0:annot=aparc.DKTatlas40.annot -cam elevation -90 zoom 2 -ss ~/QC_Test/${i}_${j}_axial_bottom
+freeview -f $SUBJECTS_DIR/$1/surf/lh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot -cam elevation -90 zoom 2 -ss $OUTDIR/${SUBJ}_${SURF}_axial_bottom
 
-done
-done
+#done
+#done
