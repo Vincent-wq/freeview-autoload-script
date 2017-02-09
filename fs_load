@@ -4,55 +4,47 @@ SUBJ=$1
 OUTDIR=$2
 SURF=smoothwm
 
-#SUBJ_LIST=(105115 110411 111312 113619 115320 117122 118730)
-#SURF_LIST=(smoothwm)
-##SURF_LIST=(smoothwm inflated pial sphere)
-# Create lists of subjects and surfaces
-
-# for i in "${SUBJ_LIST[@]}"
-# do
-# SUBJ=$i
-
-# for j in "${SURF_LIST[@]}"
-# do
-# SURF=$j
+# ## example test view - coronal front
+# freeview -f $SUBJECTS_DIR/$1/surf/lh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
+#          -f $SUBJECTS_DIR/$1/surf/rh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
+#          --viewport '3d' --viewsize 900 900 -cam zoom 1.5 azimuth -90 
 
 ##
 ## SUBJECT_DIR needs to be defined
-
-## add -viewsize, double check angles
+##
 
 ## sagittal left
-freeview -f $SUBJECTS_DIR/$1/surf/lh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot --viewport '3d' -cam zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_sagittal_left
+freeview -f $SUBJECTS_DIR/$1/surf/lh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
+         --viewport '3d' --viewsize 900 900 -cam zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_sagittal_left
 
 ## sagittal right
-freeview -f $SUBJECTS_DIR/$1/surf/rh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot --viewport '3d' -cam azimuth 180 zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_sagittal_right
+freeview -f $SUBJECTS_DIR/$1/surf/rh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
+         --viewport '3d' --viewsize 900 900 -cam azimuth 180 zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_sagittal_right
 
 ## medial left
-freeview -f $SUBJECTS_DIR/$1/surf/lh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot --viewport '3d' -cam azimuth 180 zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_medial_left
+freeview -f $SUBJECTS_DIR/$1/surf/lh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
+         --viewport '3d' --viewsize 900 900 -cam azimuth 180 zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_medial_left
 
 ## medial right
-freeview -f $SUBJECTS_DIR/$1/surf/rh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot --viewport '3d' -cam zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_medial_right
+freeview -f $SUBJECTS_DIR/$1/surf/rh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
+         --viewport '3d' --viewsize 900 900 -cam zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_medial_right
 
 ## coronal front
 freeview -f $SUBJECTS_DIR/$1/surf/lh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
          -f $SUBJECTS_DIR/$1/surf/rh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
-         --viewport '3d' -cam azimuth -90 zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_coronal_front
+         --viewport '3d' --viewsize 900 900 -cam azimuth -90 zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_coronal_front
 
 ## coronal back
 freeview -f $SUBJECTS_DIR/$1/surf/lh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
          -f $SUBJECTS_DIR/$1/surf/rh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
-         --viewport '3d' -cam azimuth 90 zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_coronal_back
+         --viewport '3d' --viewsize 900 900 -cam azimuth 90 zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_coronal_back
 
 ## axial top
 freeview -f $SUBJECTS_DIR/$1/surf/lh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
          -f $SUBJECTS_DIR/$1/surf/rh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
-	 --viewport '3d' -cam elevation 90 zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_axial_top
+	 --viewport '3d' --viewsize 900 900 -cam elevation 90 zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_axial_top
 
 ## axial bottom
 freeview -f $SUBJECTS_DIR/$1/surf/lh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
          -f $SUBJECTS_DIR/$1/surf/rh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
-         --viewport '3d' -cam elevation -90 zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_axial_bottom
-
-#done
-#done
+         --viewport '3d' --viewsize 900 900 -cam elevation -90 zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_axial_bottom

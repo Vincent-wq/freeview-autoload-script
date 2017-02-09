@@ -10,6 +10,7 @@ cat << EOF > ${OUTFILE}.tex
 
 \usepackage[latin9]{inputenc}
 \usepackage{graphicx}
+\usepackage[margin=0.5in]{geometry}
 
 \providecommand{\tabularnewline}{\\\}
 
