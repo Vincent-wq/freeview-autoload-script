@@ -29,22 +29,24 @@ freeview -f $SUBJECTS_DIR/$1/surf/lh.${SURF}:edgethickness=0:annot=aparc.DKTatla
 freeview -f $SUBJECTS_DIR/$1/surf/rh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
          --viewport '3d' --viewsize 900 900 -cam zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_medial_right
 
+## both hemispheres - coronal still off
+
 ## coronal front
 freeview -f $SUBJECTS_DIR/$1/surf/lh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
          -f $SUBJECTS_DIR/$1/surf/rh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
-         --viewport '3d' --viewsize 900 900 -cam azimuth -90 zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_coronal_front
+         --viewport '3d' --viewsize 900 900 -ras 0 0 0 -cam azimuth -90 zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_coronal_front
 
 ## coronal back
 freeview -f $SUBJECTS_DIR/$1/surf/lh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
          -f $SUBJECTS_DIR/$1/surf/rh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
-         --viewport '3d' --viewsize 900 900 -cam azimuth 90 zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_coronal_back
+         --viewport '3d' --viewsize 900 900 -ras 0 0 0 -cam azimuth 90 zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_coronal_back
 
 ## axial top
 freeview -f $SUBJECTS_DIR/$1/surf/lh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
          -f $SUBJECTS_DIR/$1/surf/rh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
-	 --viewport '3d' --viewsize 900 900 -cam elevation 90 zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_axial_top
+	 --viewport '3d' --viewsize 900 900 -ras 0 0 0 -cam elevation 90 zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_axial_top
 
 ## axial bottom
 freeview -f $SUBJECTS_DIR/$1/surf/lh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
          -f $SUBJECTS_DIR/$1/surf/rh.${SURF}:edgethickness=0:annot=aparc.DKTatlas40.annot \
-         --viewport '3d' --viewsize 900 900 -cam elevation -90 zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_axial_bottom
+         --viewport '3d' --viewsize 900 900 -ras 0 0 0 -cam elevation -90 zoom 1.5 -ss $OUTDIR/${SUBJ}_${SURF}_axial_bottom
