@@ -1,0 +1,16 @@
+#!/bin/bash
+
+## Brent McPherson & David Hunt
+## 20170216
+## merge individual qc reports into a single file
+##
+
+## variables - make arguments eventually
+OUTFILE=glue_subj_qc
+QCFOLDER=/N/dc2/projects/lifebid/glue/fs_qc
+
+## use ghostscript to create merged subjects pdf
+gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=${OUTFILE}.pdf ${QCFOLDER}/*_qc.pdf
+
+## remove individual pdfs?
+## fix table numbers?
